@@ -6,44 +6,8 @@
 // OUTPUT a password is generated that matches the selected criteria
 // password is either displayed in an alert or written to the page
 
-let startGenerator = function () {
-  let passwordLength = window.prompt(
-    "How many characters do you want in your password?"
-  );
-  let askSmalCase = window.prompt("Would you like to use small letters?");
-  let askAlphaCap = window.prompt("Would you like to use capitol letters?");
-  let askSpecial = window.prompt("Would you like to use special characters?");
-  let askNumber = window.prompt("would you like to add numbers?");
-  
-  
-10
-hkasfhekdu
--50%
-hkasfAGTRH
-randomize
--10%
-@#$%^jhfkad
 
 
-
-};
-verify length number is more than 8 less than 128
-generate a string with small letters using the legnth value from password 
-got to the next if statemt to verify TRUE for character 
-pop off the end and push new character from other character types
-
-
-
-
-
-askSpecial
-
-
-// how man characters should the password be
-let capsCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let smallCharacters = "abcdefghijklmnopqrstuvwxyz";
-let specialCharacters = "!@#$%^&*()";
-let numberCharacters = "0123456789";
 
 
 
@@ -56,11 +20,25 @@ let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  let password = generatePassword();
+  let passwordLength = window.prompt("How many characters do you want in your password?"); //Input popup passwordLength
+  let askSmalCase = window.confirm("Would you like to use small letters?"); // Boolean popup
+  let askAlphaCap = window.confirm("Would you like to use capitol letters?"); // Boolean popup
+  let askSpecial = window.confirm("Would you like to use special characters?"); //Boolean popup
+  let askNumber = window.confirm("would you like to add numbers?"); //Boolean popup
+
+
+  let password = generatePassword(passwordLength,charSmall,charCaps,charSpecial,charNumber); //values from inputs
   let passwordText = document.querySelector("#password");
   l;
   passwordText.value = password;
 }
+function generatePassword(passwordLength,charSmall,charCaps,charSpecial,charNumber){ 
+  let charCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let charSmall = "abcdefghijklmnopqrstuvwxyz";
+let charSpecial = "!@#$%^&*()";
+let charNumber = "0123456789";
+}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
